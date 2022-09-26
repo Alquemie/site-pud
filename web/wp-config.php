@@ -193,7 +193,7 @@ define( 'WP_CONTENT_URL', WP_HOME . '/app' );
  */
 $table_prefix = (isset($_ENV['DB_PREFIX'])) ? $_ENV['DB_PREFIX'] : 'dev_';
 
-if (in_array($_ENV['HOSTING_ENVIRONMENT'], array( 'test', 'live' ) ) ) {
+if (in_array($_ENV['WP_ENV'], array( 'test', 'live' ) ) ) {
 	if ( ! defined('DISALLOW_FILE_MODS') ) {
 			define( 'DISALLOW_FILE_MODS', true );
 	}
