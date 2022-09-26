@@ -21,6 +21,7 @@
     "alquemie/upstream-config": "*",
     "wpackagist-plugin/disable-comments":"^2.4",
     "wpackagist-plugin/fluentform":"^4.3",
+    "wpackagist-plugin/wp-migrate-db":"^2.4",
     "wpackagist-theme/the-evolution":"^1.0"
   },
   "config": {
