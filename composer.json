@@ -18,7 +18,9 @@
     }
   ],
   "require": {
-    "alquemie/upstream-config": "*"
+    "alquemie/upstream-config": "*",
+    "wpackagist-plugin/ninja-forms":"^3.6",
+    "wpackagist-theme/semplice-monospazio":"^1.1"
   },
   "config": {
     "vendor-dir": "vendor",
