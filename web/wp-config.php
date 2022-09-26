@@ -29,7 +29,7 @@ $redirect = false;
  * Pantheon platform settings. Everything you need should already be set.
  */
 if (isset($_ENV['PANTHEON_ENVIRONMENT']) ) {
-	define('HOSTING_ENVIRONMENT', $_ENV['PANTHEON_ENVIRONMENT']);
+	define('WP_ENV', $_ENV['PANTHEON_ENVIRONMENT']);
 	$redirect = (!isset($_SERVER['HTTP_USER_AGENT_HTTPS']) || $_SERVER['HTTP_USER_AGENT_HTTPS'] != 'ON' ) ? true : false;
 
 	/** The name of the database for WordPress */
@@ -129,20 +129,20 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) ) {
 	
 }
 
-if (! isset($_ENV['HOSTING_ENVIRONMENT'])) {
-	putenv('HOSTING_ENVIRONMENT=dev');
+if (! isset($_ENV['WP_ENV'])) {
+	putenv('WP_ENV=dev');
 }
 
-if (isset($_ENV['HOSTING_ENVIRONMENT']) && php_sapi_name() != 'cli') {
+if (isset($_ENV['WP_ENV']) && php_sapi_name() != 'cli') {
   // Redirect to https://$primary_domain in the Live environment
 
-  if ($_ENV['HOSTING_ENVIRONMENT'] === 'live') {
+  if ($_ENV['WP_ENV'] === 'live') {
     $current_domain = $prod_domain;
   } 
-  elseif ($_ENV['HOSTING_ENVIRONMENT'] === 'test') {
+  elseif ($_ENV['WP_ENV'] === 'test') {
     $current_domain = $stage_domain;
   } 
-  elseif ($_ENV['HOSTING_ENVIRONMENT'] === 'dev') {
+  elseif ($_ENV['WP_ENV'] === 'dev') {
     $current_domain = $dev_domain;
   } 
 
